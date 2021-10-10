@@ -1,55 +1,78 @@
-console.log('Задание 1')
-const delay = (ms) => {
-  // Твой код
+// console.log('Задание 1')
+// const delay = (ms) => {
+//   // Твой код
 
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      logger(ms)
-    }, ms)
-  })
-}
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       logger(ms)
+//     }, ms)
+//   })
+// }
 
-const logger = (time) => console.log(`Resolved after ${time}ms`)
+// const logger = (time) => console.log(`Resolved after ${time}ms`)
 
-// Вызовы функции для проверки
-delay(2000).then(logger) // Resolved after 2000ms
-delay(1000).then(logger) // Resolved after 1000ms
-delay(1500).then(logger) // Resolved after 1500ms
+// // Вызовы функции для проверки
+// delay(2000).then(logger) // Resolved after 2000ms
+// delay(1000).then(logger) // Resolved after 1000ms
+// delay(1500).then(logger) // Resolved after 1500ms
 
-console.log('Задание 3')
+// console.log('Задание 2')
 
-const randomIntegerFromInterval = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
+// const users = [
+//   { name: 'Mango', active: true },
+//   { name: 'Poly', active: false },
+//   { name: 'Ajax', active: true },
+//   { name: 'Lux', active: false },
+// ]
 
-const makeTransaction = (transaction) => {
-  return new Promise((resolve, reject) => {
-    const delay = randomIntegerFromInterval(200, 500)
+// const toggleUserState = (allUsers, userName) => {
+//   return new Promise((resolve) => {
+//     const updatedUsers = allUsers.map((user) =>
+//       user.name === userName ? { ...user, active: !user.active } : user,
+//     )
+//     resolve(updatedUsers)
+//   })
+// }
 
-    setTimeout(() => {
-      const canProcess = Math.random() > 0.3
+// const logger = (updatedUsers) => console.table(updatedUsers)
 
-      if (canProcess) {
-        resolve({ id: transaction.id, time: delay })
-      } else {
-        reject(transaction.id)
-      }
-    }, delay)
-  })
-}
+// toggleUserState(users, 'Mango').then(logger)
+// toggleUserState(users, 'Lux').then(logger)
 
-const logSuccess = ({ id, time }) => {
-  console.log(`Transaction ${id} processed in ${time}ms`)
-}
+// console.log('Задание 3')
 
-const logError = (id) => {
-  console.warn(`Error processing transaction ${id}. Please try again later.`)
-}
+// const randomIntegerFromInterval = (min, max) => {
+//   return Math.floor(Math.random() * (max - min + 1) + min)
+// }
 
-makeTransaction({ id: 70, amount: 150 }).then(logSuccess).catch(logError)
+// const makeTransaction = (transaction) => {
+//   return new Promise((resolve, reject) => {
+//     const delay = randomIntegerFromInterval(200, 500)
 
-makeTransaction({ id: 71, amount: 230 }).then(logSuccess).catch(logError)
+//     setTimeout(() => {
+//       const canProcess = Math.random() > 0.3
 
-makeTransaction({ id: 72, amount: 75 }).then(logSuccess).catch(logError)
+//       if (canProcess) {
+//         resolve({ id: transaction.id, time: delay })
+//       } else {
+//         reject(transaction.id)
+//       }
+//     }, delay)
+//   })
+// }
 
-makeTransaction({ id: 73, amount: 100 }).then(logSuccess).catch(logError)
+// const logSuccess = ({ id, time }) => {
+//   console.log(`Transaction ${id} processed in ${time}ms`)
+// }
+
+// const logError = (id) => {
+//   console.warn(`Error processing transaction ${id}. Please try again later.`)
+// }
+
+// makeTransaction({ id: 70, amount: 150 }).then(logSuccess).catch(logError)
+
+// makeTransaction({ id: 71, amount: 230 }).then(logSuccess).catch(logError)
+
+// makeTransaction({ id: 72, amount: 75 }).then(logSuccess).catch(logError)
+
+// makeTransaction({ id: 73, amount: 100 }).then(logSuccess).catch(logError)
